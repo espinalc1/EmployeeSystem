@@ -1,0 +1,21 @@
+1. The user should be able to navigate to a home page
+	a. navigation
+		a. the user should be able to see a list of employees link	
+		b. the user should be able to see another page to add employees link
+	b. body
+		a. list of employees
+			a. the user should be able to see action buttons by the employee's details in a row
+				a. delete button
+				b. update button
+
+		b. add employee button at the top
+
+2. add employees page - the user should be able to type in details in the add employees page
+	a. first name
+	b. last name
+	c. email
+	d. submit button
+
+
+	
+	
