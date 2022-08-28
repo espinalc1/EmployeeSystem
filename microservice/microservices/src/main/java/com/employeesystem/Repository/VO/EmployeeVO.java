@@ -11,19 +11,22 @@ public class EmployeeVO {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long employeeId;
 
-	private String firstName;
-	private String lastName;
+	private String firstname;
+	private String lastname;
+	
+	
 	private String email;
 
-	public EmployeeVO(String firstName, String lastName, String email) {
+	public EmployeeVO(String firstname, String lastname, String email) {
 		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.email = email;
 	}
 
 	@Override
 	public String toString() {
-		return "EmployeeVO [employeeId=" + employeeId + ", firstName=" + firstName + ", lastName=" + lastName
+		return "EmployeeVO [employeeId=" + employeeId + ", firstname=" + firstname + ", lastname=" + lastname
 				+ ", email=" + email + "]";
 	}
 
@@ -35,20 +38,20 @@ public class EmployeeVO {
 		this.employeeId = employeeId;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public String getFirstname() {
+		return firstname;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
 
-	public String getLastName() {
-		return lastName;
+	public String getLastname() {
+		return lastname;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
 	}
 
 	public String getEmail() {
