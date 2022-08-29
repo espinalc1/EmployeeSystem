@@ -34,9 +34,9 @@ public class EmployeeBusinessImpl implements EmployeeBusiness {
 	}
 
 	@Override
-	public String readEmployee(EmployeeVO employee) {
+	public EmployeeVO getEmployeeById(EmployeeVO employee) {
 		// TODO Auto-generated method stub
-		return null;
+		return employeeService.getEmployeeById(employee);
 	}
 
 	@Override
