@@ -5,16 +5,21 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.sun.istack.NotNull;
+
 @Entity
 public class EmployeeVO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long employeeId;
 
+	@NotNull
 	private String firstname;
+	
+	@NotNull
 	private String lastname;
 	
-	
+	@NotNull
 	private String email;
 
 	public EmployeeVO(String firstname, String lastname, String email) {
