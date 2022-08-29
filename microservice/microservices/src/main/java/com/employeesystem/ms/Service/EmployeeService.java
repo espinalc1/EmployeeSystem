@@ -1,11 +1,13 @@
-package com.employeesystem.Business;
+package com.employeesystem.ms.Service;
 
 import java.util.List;
 
-import com.employeesystem.Repository.VO.EmployeeVO;
+import com.employeesystem.ms.Repository.VO.EmployeeVO;
 
-public interface EmployeeBusiness {
-	public EmployeeVO addEmployeeToList(EmployeeVO employee);
+
+public interface EmployeeService {
+
+	public EmployeeVO addEmployee(EmployeeVO employee);
 	
 	public EmployeeVO updateEmployee(EmployeeVO employee);
 	
@@ -14,4 +16,6 @@ public interface EmployeeBusiness {
 	public String readEmployee(EmployeeVO employee);
 	
 	public List<EmployeeVO> getAllEmployees();
+
+	
 }

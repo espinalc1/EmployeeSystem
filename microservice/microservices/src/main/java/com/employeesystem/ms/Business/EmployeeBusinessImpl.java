@@ -1,29 +1,30 @@
-package com.employeesystem.Service;
+package com.employeesystem.ms.Business;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.employeesystem.Repository.EmployeeRepository;
-import com.employeesystem.Repository.VO.EmployeeVO;
+import com.employeesystem.ms.Repository.VO.EmployeeVO;
+import com.employeesystem.ms.Service.EmployeeService;
 
+// business returns a response to the controller to be forwarded to the client
 @Service
-public class EmployeeServiceImpl implements EmployeeService {
+public class EmployeeBusinessImpl implements EmployeeBusiness {
 	
 	@Autowired
-	EmployeeRepository employeeRepo;
+	EmployeeService employeeService;
 
 	@Override
-	public EmployeeVO addEmployee(EmployeeVO employee) {
+	public EmployeeVO addEmployeeToList(EmployeeVO employee) {
 		// TODO Auto-generated method stub
-		return employeeRepo.save(employee);
+		return employeeService.addEmployee(employee);
 	}
 
 	@Override
 	public EmployeeVO updateEmployee(EmployeeVO employee) {
 		// TODO Auto-generated method stub
-		return employeeRepo.save(employee);
+		return employeeService.addEmployee(employee);
 	}
 
 	@Override
@@ -41,7 +42,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public List<EmployeeVO> getAllEmployees() {
 		// TODO Auto-generated method stub
-		return employeeRepo.findAll();
+		return employeeService.getAllEmployees();
 	}
 
 }

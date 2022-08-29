@@ -1,10 +1,10 @@
-package com.employeesystem.Repository;
+package com.employeesystem.ms.Repository;
 
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.employeesystem.Repository.VO.EmployeeVO;
+import com.employeesystem.ms.Repository.VO.EmployeeVO;
 
 public interface EmployeeRepository extends CrudRepository<EmployeeVO, Long> {
 

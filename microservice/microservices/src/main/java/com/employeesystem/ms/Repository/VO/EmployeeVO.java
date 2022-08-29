@@ -1,4 +1,4 @@
-package com.employeesystem.Repository.VO;
+package com.employeesystem.ms.Repository.VO;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,12 +15,16 @@ public class EmployeeVO {
 
 	@NotNull
 	private String firstname;
-	
+
 	@NotNull
 	private String lastname;
-	
+
 	@NotNull
 	private String email;
+
+	private EmployeeVO() {
+
+	}
 
 	public EmployeeVO(String firstname, String lastname, String email) {
 		super();
