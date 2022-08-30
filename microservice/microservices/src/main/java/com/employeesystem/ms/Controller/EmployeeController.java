@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.employeeservices.ms.Exception.EmployeeAlreadyExistsException;
 import com.employeesystem.ms.Business.EmployeeBusiness;
 import com.employeesystem.ms.Repository.VO.EmployeeVO;
 
@@ -23,15 +24,13 @@ public class EmployeeController {
 	@Autowired
 	EmployeeBusiness employeeBusiness;
 
-	@GetMapping("/test")
-	public String testPage() {
-		return "Hello World";
-	}
-
 	// create
+	/**
+	 * Should Validate the following: - email is unique - email follows typical
+	 * email conventions
+	 */
 	@GetMapping("/add")
-	public EmployeeVO addEmployee(@RequestBody EmployeeVO employee) {
-		System.out.println(employee);
+	public EmployeeVO addEmployee(@RequestBody EmployeeVO employee) throws EmployeeAlreadyExistsException {
 		return employeeBusiness.addEmployeeToList(employee);
 	}
 
@@ -48,10 +47,34 @@ public class EmployeeController {
 		return employeeData;
 	}
 
+	@GetMapping("/getByEmail")
+	public EmployeeVO getEmployeeByEmail(@RequestBody EmployeeVO employee) {
+		EmployeeVO employeeData = employeeBusiness.getEmployeeByEmail(employee);
+		return employeeData;
+	}
+	
+	@GetMapping("/delete")
+	public ResponseEntity<String> deleteEmployee(EmployeeVO employee){
+		// delete an employee successfully
+		try {
+			employeeBusiness.deleteEmployee(employee);
+		} catch (IllegalArgumentException exception) {
+			return ResponseEntity.ok().body("Employee not in our system");			
+		}
+		return ResponseEntity.ok().body("Employee deleted");			
+		
+		// no such employee exists in our system
+	}
+
 	// exception handlers
 	@ExceptionHandler({ NoSuchElementException.class })
 	public ResponseEntity<String> noSuchElementExceptionHandler() {
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body("This data isn't in our database");
+	}
+
+	@ExceptionHandler({ EmployeeAlreadyExistsException.class })
+	public ResponseEntity<String> employeeAlreadyExistsExceptionHandler() {
+		return ResponseEntity.status(HttpStatus.CONFLICT).body("This employee is already in our database");
 	}
 
 }

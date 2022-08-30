@@ -1,6 +1,7 @@
 package com.employeesystem.ms.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
 
@@ -14,6 +15,6 @@ public interface EmployeeRepository extends CrudRepository<EmployeeVO, Long> {
 
 	List<EmployeeVO> findByFirstnameIgnoreCase(String firstname);
 
-	List<EmployeeVO> findByEmailIgnoreCase(String email);
+	Optional<EmployeeVO> findByEmailIgnoreCase(String email);
 
 }
