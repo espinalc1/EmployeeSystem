@@ -21,22 +21,21 @@ public class EmployeeVO {
 
 	@NotNull
 	private String email;
+	
+	@NotNull
+	private String salt;
 
 	private EmployeeVO() {
 
 	}
 
-	public EmployeeVO(String firstname, String lastname, String email) {
+	public EmployeeVO(Long employeeId, String firstname, String lastname, String email, String salt) {
 		super();
+		this.employeeId = employeeId;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.email = email;
-	}
-
-	@Override
-	public String toString() {
-		return "EmployeeVO [employeeId=" + employeeId + ", firstname=" + firstname + ", lastname=" + lastname
-				+ ", email=" + email + "]";
+		this.salt = salt;
 	}
 
 	public Long getEmployeeId() {
@@ -69,6 +68,14 @@ public class EmployeeVO {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getSalt() {
+		return salt;
+	}
+
+	public void setSalt(String salt) {
+		this.salt = salt;
 	}
 
 }

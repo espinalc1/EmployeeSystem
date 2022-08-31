@@ -17,6 +17,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Autowired
 	EmployeeRepository employeeRepo;
+	
+	@Autowired
+	EmployeeDataEncryption employeeDataEncryption;
 
 	@Override
 	public EmployeeVO addEmployee(EmployeeVO employee) throws EmployeeAlreadyExistsException {
@@ -25,6 +28,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 		if (currentEmployeeWithEmail.isPresent()) {
 			throw new EmployeeAlreadyExistsException("This Employee already exists in our system");
 		}
+		
+		
+		
 		return employeeRepo.save(employee);
 	}
 
